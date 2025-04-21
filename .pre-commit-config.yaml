@@ -15,5 +15,4 @@ repos:
         language: script
         always_run: true
         pass_filenames: false
-        stages: [pre-commit, pre-push]
-
+        stages: [commit, push]
