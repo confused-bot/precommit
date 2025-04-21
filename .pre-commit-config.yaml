@@ -1,17 +1,13 @@
 repos:
   - repo: local
     hooks:
-      - id: trufflehog-verify
-        name: TruffleHog – detect & verify secrets
-        description: |
-          Scan staged changes for secrets, then verify each against its
-          issuer (e.g., AWS, Stripe) and fail if any live credential is found.
-        entry: >
-          bash -c '
-            trufflehog git file://$(pwd) \
-              --since-commit HEAD \
-              --only-verified \
-              --fail
-          '
+      - id: trufflehog
+        name: TruffleHog – detect & verify secrets
+        entry: |
+          bash -c 'trufflehog git file://. \
+            --since-commit main \
+            --only-verified \
+            --fail'
         language: system
-        stages: [commit, push]
+        stages: [pre-commit, pre-push]
+
