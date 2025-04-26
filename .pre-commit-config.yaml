@@ -10,7 +10,6 @@ repos:
           bash -c '
             trufflehog git file://$(pwd) \
               --since-commit HEAD \
-              --only-verified \
               --fail
           '
         language: system
