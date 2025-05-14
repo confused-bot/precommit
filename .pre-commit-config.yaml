@@ -9,7 +9,6 @@ repos:
             trufflehog git file://$(pwd) \
               --since-commit main \
               --branch HEAD \
-              --only-verified \
               --fail
           '
         language: system
